@@ -182,23 +182,96 @@ gtag('config', 'G-V65HF7P1XY');
 
 <!-- ⭐ SCRIPT 1 -->
 
-<div class="script-box"> <div class="script-scroll"> <pre id="script1">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/GAG2/AutoFarm))</pre> </div>
+<div class="script-box">
+  <div class="script-scroll">
+    <pre id="script1">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/GAG2/AutoFarm))</pre>
+  </div>
 
-<button onclick="copyScript('script1', 'copied1')">Copy Script</button>
-
-<div id="copied1" style="display: none;">✓ Copied</div> </div>
+  <button id="copyButton1" onclick="copyScript('script1', 'copyButton1')">
+    📋 Copy Script
+  </button>
+</div>
 
 <!-- ⭐ SCRIPT 2 -->
 
-<div class="script-box"> <div class="script-scroll"> <pre id="script2">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/GAG2/MailDupe))</pre> </div>
+<div class="script-box">
+  <div class="script-scroll">
+    <pre id="script2">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/GAG2/MailDupe))</pre>
+  </div>
 
-<button onclick="copyScript('script2', 'copied2')">Copy Script</button>
-
-<div id="copied2" style="display: none;">✓ Copied</div> </div>
+  <button id="copyButton2" onclick="copyScript('script2', 'copyButton2')">
+    📋 Copy Script
+  </button>
+</div>
 
 <!-- ⭐ COPY SCRIPT FUNCTION -->
 
-<script> function copyScript(scriptId, copiedId) { const scriptElement = document.getElementById(scriptId); const copiedElement = document.getElementById(copiedId); const text = scriptElement.textContent; // Modern clipboard API if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text) .then(() => { showCopied(copiedElement); }) .catch(() => { fallbackCopy(text, copiedElement); }); } else { // Fallback for HTTP / unsupported browsers fallbackCopy(text, copiedElement); } } function fallbackCopy(text, copiedElement) { const textarea = document.createElement("textarea"); textarea.value = text; textarea.style.position = "fixed"; textarea.style.left = "-9999px"; document.body.appendChild(textarea); textarea.focus(); textarea.select(); try { document.execCommand("copy"); showCopied(copiedElement); } catch (error) { alert("Unable to copy script. Please copy it manually."); } document.body.removeChild(textarea); } function showCopied(copiedElement) { copiedElement.style.display = "block"; setTimeout(() => { copiedElement.style.display = "none"; }, 2000); } </script>
+<script>
+function copyScript(scriptId, buttonId) {
+  const scriptElement = document.getElementById(scriptId);
+  const button = document.getElementById(buttonId);
+  const text = scriptElement.textContent;
+
+  function copiedSuccessfully() {
+    // Change button appearance
+    button.innerHTML = "✓ Copied!";
+    button.classList.add("copied");
+
+    // Reset button after 2 seconds
+    setTimeout(() => {
+      button.innerHTML = "📋 Copy Script";
+      button.classList.remove("copied");
+    }, 2000);
+  }
+
+  // Modern clipboard API
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text)
+      .then(copiedSuccessfully)
+      .catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+
+  function fallbackCopy(text) {
+    const textarea = document.createElement("textarea");
+
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try {
+      if (document.execCommand("copy")) {
+        copiedSuccessfully();
+      } else {
+        alert("Unable to copy script. Please copy it manually.");
+      }
+    } catch (error) {
+      alert("Unable to copy script. Please copy it manually.");
+    }
+
+    document.body.removeChild(textarea);
+  }
+}
+</script>
+
+<!-- ⭐ VISUAL COPIED EFFECT -->
+
+<style>
+.script-box button {
+  transition: all 0.25s ease;
+}
+
+.script-box button.copied {
+  transform: scale(1.05);
+  letter-spacing: 0.5px;
+}
+</style>
 
 <!-- ⭐ YILDIZ OLUŞTUR -->
 <script>
