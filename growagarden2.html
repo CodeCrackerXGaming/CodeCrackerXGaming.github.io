@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CodeCrackerGaming – Grow A Garden 2</title>
+<title>CodeCrackerGaming – Adopt Me</title>
 
 <style>
 /* GENEL */
@@ -66,20 +66,20 @@ body{
   width:60px;
   height:60px;
   border-radius:50%;
-  border:3px solid #22c55e;
+  border:3px solid #facc15;
 }
 
 /* BACK */
 .back{
   display:inline-block;
   margin-bottom:20px;
-  color:#22c55e;
+  color:#facc15;
   text-decoration:none;
   font-weight:800;
 }
 
 /* TITLES */
-h1 span{color:#22c55e}
+h1 span{color:#facc15}
 
 /* SCRIPT BOX */
 .script-box{
@@ -94,7 +94,7 @@ h1 span{color:#22c55e}
 }
 .script-scroll::-webkit-scrollbar{height:8px}
 .script-scroll::-webkit-scrollbar-thumb{
-  background:#22c55e;
+  background:#facc15;
   border-radius:10px;
 }
 pre{
@@ -103,14 +103,14 @@ pre{
   border-radius:12px;
   min-width:520px;
   white-space:pre;
-  color:#22c55e;
+  color:#facc15;
   margin:0;
 }
 
 /* BUTTON */
 button{
   margin-top:14px;
-  background:#22c55e;
+  background:#facc15;
   border:none;
   padding:14px 20px;
   border-radius:12px;
@@ -121,7 +121,7 @@ button{
 /* COPIED */
 #copied{
   margin-top:10px;
-  color:#22c55e;
+  color:#facc15;
   font-weight:800;
   display:none;
 }
@@ -141,7 +141,7 @@ button{
   border:1px solid #1f2937;
 }
 .stat-value{
-  color:#22c55e;
+  color:#facc15;
   font-size:24px;
   font-weight:900;
 }
@@ -165,7 +165,6 @@ gtag('config', 'G-V65HF7P1XY');
 <body>
 
 <!-- ⭐ ARKA PLAN -->
-
 <div id="stars"></div>
 
 <div class="container">
@@ -177,101 +176,29 @@ gtag('config', 'G-V65HF7P1XY');
   <h2>CodeCrackerGaming</h2>
 </div>
 
-<h1>Grow<span> A Garden 2</span></h1>
-<p>Fast, safe and smooth automation for Grow A Garden 2.</p>
-
-<!-- ⭐ SCRIPT 1 -->
+<h1>Adopt<span> Me</span></h1>
+<p>Fast, safe and smooth automation for Adopt Me.</p>
 
 <div class="script-box">
   <div class="script-scroll">
-    <pre id="script1">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/GAG2/AutoFarm))</pre>
+<pre id="script">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/Adopt%20Me/VisualAndFarm))</pre>
   </div>
-
-  <button id="copyButton1" onclick="copyScript('script1', 'copyButton1')">
-    📋 Copy Script
-  </button>
+  <button onclick="copyScript()">Copy Script</button>
+  <div id="copied">✓ Copied</div>
 </div>
 
-<!-- ⭐ SCRIPT 2 -->
-
-<div class="script-box">
-  <div class="script-scroll">
-    <pre id="script2">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/GAG2/MailDupe))</pre>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value">5K+</div>
+    <div class="stat-label">Executions</div>
   </div>
-
-  <button id="copyButton2" onclick="copyScript('script2', 'copyButton2')">
-    📋 Copy Script
-  </button>
+  <div class="stat">
+    <div class="stat-value">80+</div>
+    <div class="stat-label">Active Users</div>
+  </div>
 </div>
 
-<!-- ⭐ COPY SCRIPT FUNCTION -->
-
-<script>
-function copyScript(scriptId, buttonId) {
-  const scriptElement = document.getElementById(scriptId);
-  const button = document.getElementById(buttonId);
-  const text = scriptElement.textContent;
-
-  function copiedSuccessfully() {
-    // Change button appearance
-    button.innerHTML = "✓ Copied!";
-    button.classList.add("copied");
-
-    // Reset button after 2 seconds
-    setTimeout(() => {
-      button.innerHTML = "📋 Copy Script";
-      button.classList.remove("copied");
-    }, 2000);
-  }
-
-  // Modern clipboard API
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text)
-      .then(copiedSuccessfully)
-      .catch(() => fallbackCopy(text));
-  } else {
-    fallbackCopy(text);
-  }
-
-  function fallbackCopy(text) {
-    const textarea = document.createElement("textarea");
-
-    textarea.value = text;
-    textarea.style.position = "fixed";
-    textarea.style.left = "-9999px";
-
-    document.body.appendChild(textarea);
-
-    textarea.focus();
-    textarea.select();
-
-    try {
-      if (document.execCommand("copy")) {
-        copiedSuccessfully();
-      } else {
-        alert("Unable to copy script. Please copy it manually.");
-      }
-    } catch (error) {
-      alert("Unable to copy script. Please copy it manually.");
-    }
-
-    document.body.removeChild(textarea);
-  }
-}
-</script>
-
-<!-- ⭐ VISUAL COPIED EFFECT -->
-
-<style>
-.script-box button {
-  transition: all 0.25s ease;
-}
-
-.script-box button.copied {
-  transform: scale(1.05);
-  letter-spacing: 0.5px;
-}
-</style>
+</div>
 
 <!-- ⭐ YILDIZ OLUŞTUR -->
 <script>
