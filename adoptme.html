@@ -187,9 +187,9 @@ gtag('config', 'G-V65HF7P1XY');
     <pre id="script1">loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/Adopt%20Me/VisualAndFarm"))()</pre>
   </div>
 
-<button onclick="copyScript('script1', 'copied1')">Copy Script</button>
-
-  <div id="copied1" style="display: none;">✓ Copied</div>
+  <button id="copyButton1" onclick="copyScript('script1', 'copyButton1')">
+    📋 Copy Script
+  </button>
 </div>
 
 <!-- ⭐ SCRIPT 2 -->
@@ -199,78 +199,79 @@ gtag('config', 'G-V65HF7P1XY');
     <pre id="script2">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/Adopt%20Me/Spawner))</pre>
   </div>
 
-<button onclick="copyScript('script2', 'copied2')">Copy Script</button>
-
-  <div id="copied2" style="display: none;">✓ Copied</div>
-</div>
-
-<div class="stats">
-  <div class="stat">
-    <div class="stat-value">5K+</div>
-    <div class="stat-label">Executions</div>
-  </div>
-
-  <div class="stat">
-    <div class="stat-value">80+</div>
-    <div class="stat-label">Active Users</div>
-  </div>
-</div>
-
+  <button id="copyButton2" onclick="copyScript('script2', 'copyButton2')">
+    📋 Copy Script
+  </button>
 </div>
 
 <!-- ⭐ COPY SCRIPT FUNCTION -->
 
 <script>
-function copyScript(scriptId, copiedId) {
+function copyScript(scriptId, buttonId) {
   const scriptElement = document.getElementById(scriptId);
-  const copiedElement = document.getElementById(copiedId);
+  const button = document.getElementById(buttonId);
   const text = scriptElement.textContent;
+
+  function copiedSuccessfully() {
+    // Change button appearance
+    button.innerHTML = "✓ Copied!";
+    button.classList.add("copied");
+
+    // Reset button after 2 seconds
+    setTimeout(() => {
+      button.innerHTML = "📋 Copy Script";
+      button.classList.remove("copied");
+    }, 2000);
+  }
 
   // Modern clipboard API
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text)
-      .then(() => {
-        showCopied(copiedElement);
-      })
-      .catch(() => {
-        fallbackCopy(text, copiedElement);
-      });
+      .then(copiedSuccessfully)
+      .catch(() => fallbackCopy(text));
   } else {
-    // Fallback for HTTP / unsupported browsers
-    fallbackCopy(text, copiedElement);
-  }
-}
-
-function fallbackCopy(text, copiedElement) {
-  const textarea = document.createElement("textarea");
-
-  textarea.value = text;
-  textarea.style.position = "fixed";
-  textarea.style.left = "-9999px";
-
-  document.body.appendChild(textarea);
-
-  textarea.focus();
-  textarea.select();
-
-  try {
-    document.execCommand("copy");
-    showCopied(copiedElement);
-  } catch (error) {
-    alert("Unable to copy script. Please copy it manually.");
+    fallbackCopy(text);
   }
 
-  document.body.removeChild(textarea);
-}
+  function fallbackCopy(text) {
+    const textarea = document.createElement("textarea");
 
-function showCopied(copiedElement) {
-  copiedElement.style.display = "block";
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
 
-  setTimeout(() => {
-    copiedElement.style.display = "none";
-  }, 2000);
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try {
+      if (document.execCommand("copy")) {
+        copiedSuccessfully();
+      } else {
+        alert("Unable to copy script. Please copy it manually.");
+      }
+    } catch (error) {
+      alert("Unable to copy script. Please copy it manually.");
+    }
+
+    document.body.removeChild(textarea);
+  }
 }
 </script>
+
+<!-- ⭐ VISUAL COPIED EFFECT -->
+
+<style>
+.script-box button {
+  transition: all 0.25s ease;
+}
+
+.script-box button.copied {
+  transform: scale(1.05);
+  letter-spacing: 0.5px;
+}
+</style>
 
 <!-- ⭐ YILDIZ OLUŞTUR -->
 <script>
