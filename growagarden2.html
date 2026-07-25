@@ -165,6 +165,7 @@ gtag('config', 'G-V65HF7P1XY');
 <body>
 
 <!-- ⭐ ARKA PLAN -->
+
 <div id="stars"></div>
 
 <div class="container">
@@ -179,12 +180,28 @@ gtag('config', 'G-V65HF7P1XY');
 <h1>Grow<span> A Garden 2</span></h1>
 <p>Fast, safe and smooth automation for Grow A Garden 2.</p>
 
+<!-- ⭐ SCRIPT 1 -->
+
 <div class="script-box">
   <div class="script-scroll">
-<pre id="script">loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeCrackerXGaming/Premium-Edition/refs/heads/main/AhmadV99/Speed%20Hub%20X.lua"))()</pre>
+    <pre id="script1">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/GAG2/AutoFarm))</pre>
   </div>
-  <button onclick="copyScript()">Copy Script</button>
-  <div id="copied">✓ Copied</div>
+
+<button onclick="copyScript('script1', 'copied1')">Copy Script</button>
+
+  <div id="copied1">✓ Copied</div>
+</div>
+
+<!-- ⭐ SCRIPT 2 -->
+
+<div class="script-box">
+  <div class="script-scroll">
+    <pre id="script2">loadstring(game:HttpGet(https://raw.githubusercontent.com/CodeCrackerXGaming/UniversalHub/refs/heads/main/GAG2/MailDupe))</pre>
+  </div>
+
+<button onclick="copyScript('script2', 'copied2')">Copy Script</button>
+
+  <div id="copied2">✓ Copied</div>
 </div>
 
 <div class="stats">
@@ -192,6 +209,7 @@ gtag('config', 'G-V65HF7P1XY');
     <div class="stat-value">20K+</div>
     <div class="stat-label">Executions</div>
   </div>
+
   <div class="stat">
     <div class="stat-value">120+</div>
     <div class="stat-label">Active Users</div>
@@ -199,6 +217,24 @@ gtag('config', 'G-V65HF7P1XY');
 </div>
 
 </div>
+
+<!-- ⭐ COPY SCRIPT FUNCTION -->
+
+<script>
+function copyScript(scriptId, copiedId) {
+  const script = document.getElementById(scriptId).innerText;
+
+  navigator.clipboard.writeText(script).then(() => {
+    const copied = document.getElementById(copiedId);
+
+    copied.style.display = "block";
+
+    setTimeout(() => {
+      copied.style.display = "none";
+    }, 2000);
+  });
+}
+</script>
 
 <!-- ⭐ YILDIZ OLUŞTUR -->
 <script>
